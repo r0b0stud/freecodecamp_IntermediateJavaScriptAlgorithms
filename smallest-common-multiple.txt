@@ -1,0 +1,49 @@
+function smallestCommons(arr) {
+  var checkArr=[];
+  var maxValueArr=[];
+  var min=Math.min(...arr);
+  var max=Math.max(...arr);
+  var c=1;
+  var found=0;
+  for(var i=min;i<=max;i++){
+    checkArr.push(i);
+  }
+  while(true){
+    var y=0;
+    var s=min*c;
+    maxValueArr.push(max*c);
+    found=maxValueArr.find(x=>x===s);
+    if(found!=undefined){
+      checkArr.forEach(item=>{
+        y+=found%item;
+      })
+      if(y===0){
+        break;
+      }
+    }
+    c++;
+  }
+  return found;
+}
+
+
+ver 2
+function smallestCommons(arr) {
+  var checkArr=[];
+  var min=Math.min(...arr);
+  var max=Math.max(...arr);
+  var n=0;
+  var check=false;
+  for(var i=min;i<=max;i++){
+    checkArr.push(i);
+  }
+  while (check === false){
+    n++
+    check=checkArr.every(item=>{return noRemainder(n,item);})
+  }
+  return n;
+}
+
+function noRemainder(n,item){return n%item===0;}
+
+smallestCommons([1,13])
