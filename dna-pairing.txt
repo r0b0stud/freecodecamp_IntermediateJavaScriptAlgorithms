@@ -1,0 +1,25 @@
+function pairElement(str) {
+  var retArray=[];
+  str.split("").forEach(item=>{
+    var subArray=[];
+    subArray.push(item);
+    switch(item){
+      case "C":
+      subArray.push("G");
+      break;
+      case "G":
+      subArray.push("C");
+      break;
+      case "A":
+      subArray.push("T");
+      break;
+      case "T":
+      subArray.push("A");
+      break;
+    }
+    retArray.push(subArray);
+  });
+  return retArray;
+}
+
+pairElement("GCG");

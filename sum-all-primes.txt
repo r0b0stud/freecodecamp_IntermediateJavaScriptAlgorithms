@@ -1,0 +1,20 @@
+function sumPrimes(num) {
+var c=0;
+  for(var i=1;i<=num;i++){
+    if(isPrime(i,num)){c+=i;}
+  }
+  //console.log(c);
+  return c;
+}
+
+//absolutely not optimal, for test only
+function isPrime(n,num){
+  var arrFound=[];
+  for(var i=2;i<=num;i++){
+    if(n%i==0){arrFound.push(i);}
+    else{arrFound.length}
+  }
+  if(arrFound.length===1){return true;}return false;
+}
+
+sumPrimes(977);

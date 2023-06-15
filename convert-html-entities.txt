@@ -1,0 +1,22 @@
+let htmlEntities = [
+  {character: "&", htmlCode: "&amp;"},
+  {character: "<", htmlCode: "&lt;"},
+  {character: ">", htmlCode: "&gt;"},
+  {character: "\"", htmlCode: "&quot;"},
+  {character: "'", htmlCode: "&apos;"}
+  ]
+function convertHTML(str) {
+  var strRet="";
+  str.split("").forEach(item=>{
+    var found = htmlEntities.find(x=>x.character===item);
+    if(found!=undefined){
+      strRet+=found.htmlCode;
+    }
+    else{
+      strRet+=item;
+    }
+  });
+  return strRet;
+}
+
+convertHTML("Dolce & Gabbana");

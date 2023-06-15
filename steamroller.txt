@@ -1,0 +1,20 @@
+function steamrollArray(arr) {
+  return flat(arr,new Array());
+}
+
+function flat(arr,arrRet){
+  arr.forEach(item=>{
+    if((!Array.isArray(item))){
+      arrRet.push(item);
+    }
+    else{
+      flat(item,arrRet);
+    }
+  });
+  return arrRet;
+}
+
+console.log(steamrollArray([[["a"]], [["b"]]]))
+console.log(steamrollArray([1, [2], [3, [[4]]]]))
+console.log(steamrollArray([1, [], [3, [[4]]]]))
+console.log(steamrollArray([1, {}, [3, [[4]]]]))

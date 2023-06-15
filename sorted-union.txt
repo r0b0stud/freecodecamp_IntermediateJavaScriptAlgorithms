@@ -1,0 +1,13 @@
+function uniteUnique(arr) {
+  var arrTot=[];
+  for(var i=0;i<arguments.length;i++){
+    arguments[i].map(item=>{
+      arrTot.push(item);
+    })
+  }
+  return arrTot.filter((element, index) => {
+    return arrTot.indexOf(element) === index;
+    });
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);

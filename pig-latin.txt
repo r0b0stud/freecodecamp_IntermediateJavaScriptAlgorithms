@@ -1,0 +1,19 @@
+var arrVowels = ["a","e","i","o","u"]
+function translatePigLatin(str) {
+  var strRet=str;
+  var strPost="";
+  str.split("").every(item=>{
+    if(arrVowels.find(x=>x===item)===undefined){
+      strRet=strRet.substring(1,strRet.length);
+      return strPost+=item;
+    }
+  });
+  if(strPost===""){
+    return strRet+"way";
+  }
+  else{
+    return strRet+strPost+"ay";
+  }
+}
+
+translatePigLatin("glove");

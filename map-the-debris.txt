@@ -1,0 +1,14 @@
+function orbitalPeriod(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+  var retArr=[];
+  arr.forEach(item=>{
+    var oP=Math.round((2*Math.PI)*(Math.sqrt(Math.pow((item.avgAlt)+earthRadius,3)/GM)));
+    retArr.push({name:item.name, orbitalPeriod:oP});
+  })
+  //var res=Math.round((2*Math.PI)*(Math.sqrt(Math.pow((arr[0].avgAlt)+earthRadius,3)/GM)));
+  console.log(retArr);
+  return retArr;
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);

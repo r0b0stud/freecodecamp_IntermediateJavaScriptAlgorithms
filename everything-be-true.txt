@@ -1,0 +1,10 @@
+function truthCheck(collection, pre) {
+  return collection.every(item =>{
+    if(Boolean(item[pre])===false){
+      return false;
+    }
+    return true;
+  });
+}
+
+console.log(truthCheck([{name: "Pikachu", number: 25, caught: 3}, {name: "Togepi", number: 175, caught: 1}, {name: "MissingNo", number: NaN, caught: 0}], "number"));

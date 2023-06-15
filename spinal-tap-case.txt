@@ -1,0 +1,33 @@
+function spinalCase(str) {
+  var regex = /^[A-Za-z0-9]*$/;
+  var retStr = "";
+  var arrStr = str.split("");
+  for(var i=0;i<arrStr.length;i++) {
+    //console.log(arrStr[i]);
+    if(i===0){
+      retStr+=arrStr[i].toLowerCase();
+    }
+    else{
+      if(!regex.test(arrStr[i])) {
+        retStr+="-";
+      }
+      else {
+        if(arrStr[i].toLowerCase() == arrStr[i]){
+          retStr+=arrStr[i].toLowerCase();
+        }
+        else {
+          if(retStr.slice(-1) != "-") {
+            retStr+= "-" + arrStr[i].toLowerCase()
+          }
+          else {
+            retStr+=arrStr[i].toLowerCase();
+          }
+        }
+      }
+    }
+  }
+  console.log(retStr)
+  return retStr
+}
+
+spinalCase('The_Andy_Griffith_Show');

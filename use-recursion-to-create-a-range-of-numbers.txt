@@ -1,0 +1,17 @@
+function rangeOfNumbers(n,n1) {
+  
+    let nextNumber = n;
+    //console.log(nextNumber);
+    
+    if (n1 > nextNumber-1) {
+        const arr = rangeOfNumbers(nextNumber+1,n1);
+        arr.unshift(nextNumber);
+        return arr;
+    }
+    else
+    {
+      return [];
+    }
+};
+
+console.log(rangeOfNumbers(4,4))

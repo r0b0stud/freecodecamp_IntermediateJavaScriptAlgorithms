@@ -1,0 +1,50 @@
+const Person = function(firstAndLast) {
+  var originalFirstName=firstAndLast.split(" ")[0];
+  var originalSecondName=firstAndLast.split(" ")[1];
+  var setFirstName=null;
+  var setSecondName=null;
+  this.getFirstName = function(){
+    if(setFirstName!=null){
+      return setFirstName;
+    }
+    return originalFirstName;
+  };
+  this.getLastName = function(){
+    if(setSecondName!=null){
+      return setSecondName;
+    }
+    return originalSecondName;
+  };
+  this.getFullName = function(){
+    var strRet=null;
+    if(setFirstName!=null){
+      strRet=setFirstName;
+    }
+    else{
+      strRet=originalFirstName;
+    }
+    if(setSecondName!=null){
+      strRet+=" " + setSecondName;
+    }
+    else{
+      strRet+=" " + originalSecondName;
+    }
+    return strRet;
+  };
+  this.setFirstName = function(first){
+    setFirstName=first;
+    return "Done!";
+  };
+  this.setLastName = function(last){
+    setSecondName=last;
+    return "Done!";
+  }
+  this.setFullName = function(firstAndLast){
+    setFirstName=firstAndLast.split(" ")[0];
+    setSecondName=firstAndLast.split(" ")[1];
+  }
+};
+
+const bob = new Person('Bob Ross');
+console.log(bob.setFirstName("test"));
+console.log(bob.getFirstName())
